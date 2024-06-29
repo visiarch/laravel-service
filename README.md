@@ -47,12 +47,12 @@ php artisan make:service {name}
 php artisan make:service PostService --i
 ```
 
-`/app/Interfaces/PostServiceInterface.php`
+`app/Services/Interfaces/PostServiceInterface.php`
 
 ```php
 <?php
 
-namespace App\Interfaces;
+namespace App\Services\Interfaces;
 
 /**
  * Interface PostServiceInterface
@@ -67,14 +67,14 @@ interface PostServiceInterface
 
 ```
 
-`/app/Services/PostService.php`
+`app/Services/PostService.php`
 
 ```php
 <?php
 
 namespace App\Services;
 
-use App\Interfaces\PostServiceInterface;
+use App\Services\Interfaces\PostServiceInterface;
 
 /**
  * Class PostService
@@ -88,13 +88,26 @@ class PostService implements PostServiceInterface
 }
 ```
 
+`app\Providers\AppServiceProvider`
+
+```php
+public function register(): void
+{
+    //
+    $this->app->bind(
+    \App\Services\Interfaces\PostServiceInterface::class,
+    \App\Services\PostService::class
+    );
+}
+```
+
 ## Create a service class without interface
 
 ```bash
 php artisan make:service PostService
 ```
 
-`/app/Services/PostService.php`
+`app/Services/PostService.php`
 
 ```php
 <?php
@@ -120,7 +133,7 @@ class PostService
 ```php
 <?php
 
-namespace App\Interfaces;
+namespace App\Services\Interfaces;
 
 use App\Models\Post;
 
