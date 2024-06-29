@@ -5,6 +5,8 @@
 [![Latest Stable Version](http://poser.pugx.org/visiarch/laravel-service/v)](https://packagist.org/packages/visiarch/laravel-service)
 [![License](http://poser.pugx.org/visiarch/laravel-service/license)](https://packagist.org/packages/visiarch/laravel-service)
 
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/bagussuandana)
+
 > A Simple Package to create services, using artisan commands in laravel.
 
 This package extends the `make:` commands to help you easily create service classes in Laravel 9+.
@@ -26,11 +28,13 @@ Once it is installed, you can use any of the commands in your terminal.
 Services are used to separate business logic from the controller, making the controller leaner and focused on handling HTTP requests and providing appropriate responses.
 
 #### With interface
+
 ```bash
 php artisan make:service {name} --i
 ```
 
 #### Without interface
+
 ```bash
 php artisan make:service {name}
 ```
@@ -38,10 +42,13 @@ php artisan make:service {name}
 # Examples
 
 ## Create a service class with interface
+
 ```bash
 php artisan make:service PostService --i
 ```
+
 `/app/Interfaces/PostServiceInterface.php`
+
 ```php
 <?php
 
@@ -60,8 +67,8 @@ interface PostServiceInterface
 
 ```
 
-
 `/app/Services/PostService.php`
+
 ```php
 <?php
 
@@ -70,44 +77,44 @@ namespace App\Services;
 use App\Interfaces\PostServiceInterface;
 
 /**
- * Class UserService
+ * Class PostService
  *
  * @package App\Services
  */
- 
+
 class PostService implements PostServiceInterface
 {
-   // 
+   //
 }
 ```
 
 ## Create a service class without interface
+
 ```bash
 php artisan make:service PostService
 ```
 
-
-
-
 `/app/Services/PostService.php`
+
 ```php
 <?php
 
 namespace App\Services;
 
 /**
- * Class UserService
+ * Class PostService
  *
  * @package App\Services
  */
- 
+
 class PostService
 {
-   // 
+   //
 }
 ```
 
 ## Implementation
+
 ### With Interface
 
 ```php
@@ -138,6 +145,7 @@ class PostService implements PostServiceInterface
     }
 }
 ```
+
 ### Without Interface
 
 ```php
@@ -185,6 +193,7 @@ class PostController extends Controller
     }
 }
 ```
+
 ```
 Just change PostServiceInterface to PostService if you are implementing without interface
 ```

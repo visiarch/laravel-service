@@ -5,7 +5,7 @@ namespace Visiarch\ServiceServiceTrait;
 use Illuminate\Console\GeneratorCommand;
 
 /**
- * This file is part of the Laravel Action Service Trait package.
+ * This file is part of the Laravel Service package.
  *
  * @author Gusti Bagus Suandana <visiarch@gmail.com> (C)
  *
